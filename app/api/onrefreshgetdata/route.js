@@ -16,7 +16,7 @@ export async function GET(request) {
         const userdata = await UserModel.findById( decodeToken._id)
         // console.log(userdata)
         return NextResponse.json(userdata);
-      }
+      } else return NextResponse.json(null)
     } catch (e) {
       console.log(e)
     }
