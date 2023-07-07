@@ -5,7 +5,7 @@ export async function GET(request){
     const SECRET_KEY = "nikhilganireddy25345"
 
     try {
-        if (request.cookies.get("token") !== undefined){
+        if (request.cookies.get("token")){
             const token = request.cookies.get("token")?.value || ""
             const decodedToken = jwt.verify(token, SECRET_KEY)
             // console.log(decodedToken)
