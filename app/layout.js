@@ -1,6 +1,8 @@
 import './globals.css'
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
+import {GlobalUserContextProvider} from "@/context/userContext";
+import axios from "axios";
 
 export const metadata = {
     title: 'Create Next App',
@@ -8,10 +10,16 @@ export const metadata = {
 }
 
 export default function RootLayout({children}) {
+    axios.defaults.baseURL = "http://localhost:4000";
+    axios.defaults.withCredentials = true
+
     return (
         <html lang="en">
-        <body className="bg-black text-gray-300 h-screen max-w-[2560px] w-full p-6 gap-6 font-mono ">
-        {children}
+        <body className="bg-black text-gray-300 h-screen  max-w-[2560px] w-full p-6 gap-6 font-mono ">
+        <GlobalUserContextProvider>
+            {children}
+        </GlobalUserContextProvider>
+
         </body>
         </html>
     )

@@ -16,14 +16,10 @@ export async function POST(NextRequest) {
             return NextResponse.json({error: "User not found"}, {status: 400})
         } else {
             if (user.password === reqBody.password) {
-                const tokenData = {
-                    id: user._id,
-                    name: user.name,
-                }
-
-                const token = jwt.sign(tokenData, SECRET_KEY, {expiresIn: "1d"})
-
-                const response = NextResponse.json({message: "Login succesful", success: true})
+                const tokenData = user
+                // console.log(tokenData)
+                const token = jwt.sign(tokenData.toObject(), SECRET_KEY, {expiresIn: "1d"})
+                const response = NextResponse.json({message: "Login successful", success: true, user})
                 response.cookies.set("token", token, {httpOnly: true})
                 return response
             } else {

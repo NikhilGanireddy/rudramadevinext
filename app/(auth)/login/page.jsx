@@ -1,9 +1,11 @@
 "use client"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import {useGlobalUserContext} from "@/context/userContext";
 
 const LoginPage = () => {
+    const {userData, setUserData, ready, setReady}= useGlobalUserContext()
     const [inputUser, setInputUser] = useState({
         name: "", password: ""
     })
@@ -13,16 +15,30 @@ const LoginPage = () => {
     const loginUser = async () => {
         try {
             setLoading(true)
-            const response = await axios.post("/api/login", inputUser)
-            console.log(response)
+            console.log(inputUser)
+
+            const response = await axios.post("/api/login", {name:inputUser.name, password:inputUser.password})
+            // console.log(response.data?.user?.isAdmin)
+            setUserData(response.data?.user)
+            // console.log(response.data?.user)
             setLoading(false)
-            router.push("/")
-        } catch (err){
+            setReady(true)
+            if (response.data?.user?.isAdmin) {
+                router.push("/admin/dashboard")
+            } else {
+                router.push("/user/dashboard")
+                // router.refresh()
+            }
+        } catch (err) {
             alert(err.response.data.error)
-        }finally {
+        } finally {
             setLoading(false)
         }
     }
+
+    useEffect(() => {
+        router.refresh()
+    }, [ready]);
 
     return <div className="flex flex-col gap-6 justify-center items-center">
         <h1>LoginPage</h1>
@@ -53,7 +69,7 @@ const LoginPage = () => {
                 disabled={loading}
                 className="px-6 py-2 rounded-lg border-none bg-neutral-300 cursor-pointer text-black font-bold disabled:cursor-not-allowed disabled:bg-black/30 disabled:text-white"
                 type="submit">
-                {loading?"Logging in": "Login"}
+                {loading ? "Logging in" : "Login"}
             </button>
         </form>
     </div>
