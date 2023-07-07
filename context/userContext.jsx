@@ -12,7 +12,8 @@ export const GlobalUserContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!userData) {
-      axios.get("/api/userdata", { withCredentials: true }).then((response) => {
+      axios.get("/api/onrefreshgetdata", { withCredentials: true }).then((response) => {
+        // console.log(response.data)
         setUserData(response.data);
         setReady(true);
       });

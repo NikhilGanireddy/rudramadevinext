@@ -1,5 +1,9 @@
 import jwt from "jsonwebtoken";
 import {NextRequest, NextResponse} from "next/server";
+import connectDB from "@/lib/mongoDatabase";
+
+connectDB()
+
 export async function GET(request){
     const SECRET_KEY = "nikhilganireddy25345"
 
@@ -8,6 +12,7 @@ export async function GET(request){
             const token = request.cookies.get("token")?.value
             const decodedToken = jwt.verify(token, SECRET_KEY)
             // console.log(decodedToken)
+
             return NextResponse.json(decodedToken)
         } else return NextResponse.json(null)
 

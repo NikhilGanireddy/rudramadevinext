@@ -7,16 +7,16 @@ import { useGlobalUserContext } from "@/context/userContext";
 export default function Home() {
   const { userData, setUserData, ready, setReady } = useGlobalUserContext();
 
-  useEffect(()=>{
-      axios
-        .get("/api/onrefreshgetdata", { withCredentials: true }).then(response=>console.log(response.data.tokendata))
-        // /.then((response) => {
-        //   setUserData(response.data);
-        //   console.log(response.data);
-        //   setReady(true);
-        // }
-        // )
-  },)
+  // useEffect(()=>{
+  //     axios
+  //       .get("/api/onrefreshgetdata", { withCredentials: true }).then(response=>console.log(response.data.tokendata))
+  //       // /.then((response) => {
+  //       //   setUserData(response.data);
+  //       //   console.log(response.data);
+  //       //   setReady(true);
+  //       // }
+  //       // )
+  // },)
 
   return (
     <div className="p-4 rounded-xl border h-full flex flex-col justify-center items-center gap-6">
