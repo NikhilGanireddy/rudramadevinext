@@ -8,11 +8,14 @@ export default function Home() {
   const { userData, setUserData, ready, setReady } = useGlobalUserContext();
 
   useEffect(()=>{
-      axios.get("/api/userdata", { withCredentials: true }).then((response) => {
-          setUserData(response.data);
-          console.log(response.data)
-          setReady(true);
-      });
+      axios
+        .get("/api/onrefreshgetdata", { withCredentials: true }).then(response=>console.log(response))
+        // /.then((response) => {
+        //   setUserData(response.data);
+        //   console.log(response.data);
+        //   setReady(true);
+        // }
+        // )
   },[])
 
   return (

@@ -5,8 +5,7 @@ export async function GET(request){
 
     try {
         if (request.cookies.get("token")){
-
-            const token = request.cookies.get("token")?.value || ""
+            const token = request.cookies.get("token")?.value
             const decodedToken = jwt.verify(token, SECRET_KEY)
             // console.log(decodedToken)
             return NextResponse.json(decodedToken)
