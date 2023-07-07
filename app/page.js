@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(()=>{
       axios
-        .get("/api/onrefreshgetdata", { withCredentials: true }).then(response=>console.log(response))
+        .get("/api/onrefreshgetdata", { withCredentials: true }).then(response=>console.log(response.data.tokendata))
         // /.then((response) => {
         //   setUserData(response.data);
         //   console.log(response.data);

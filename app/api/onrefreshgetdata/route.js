@@ -4,5 +4,6 @@ import {NextResponse} from "next/server";
 
 export async function GET(request) {
   const SECRET_KEY = "nikhilganireddy25345";
-  return NextResponse.json(request.cookies.get("token")?.value);
+  const tokendata = request.cookies.get("token")?.value
+  return NextResponse.json({tokendata:tokendata});
 }
