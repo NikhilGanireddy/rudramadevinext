@@ -10,8 +10,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  axios.defaults.baseURL = "https://rudramadevinext-wgjy.vercel.app";
-  axios.defaults.withCredentials = true;
+  // axios.defaults.baseURL = "https://rudramadevinext-wgjy.vercel.app";
+  // axios.defaults.withCredentials = true;
 
   return (
     <html lang="en">
