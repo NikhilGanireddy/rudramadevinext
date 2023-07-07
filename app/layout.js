@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default function RootLayout({children}) {
-    axios.defaults.baseURL = "http://localhost:4000";
+    // axios.defaults.baseURL = "http://localhost:4000";
     axios.defaults.withCredentials = true
 
     return (
