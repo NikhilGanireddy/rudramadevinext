@@ -16,7 +16,7 @@ export default function Home() {
         //   setReady(true);
         // }
         // )
-  },[])
+  },)
 
   return (
     <div className="p-4 rounded-xl border h-full flex flex-col justify-center items-center gap-6">
