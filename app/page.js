@@ -7,7 +7,6 @@ import {useGlobalUserContext} from "@/context/userContext";
 export default function Home() {
     const {userData, setUserData, ready, setReady} = useGlobalUserContext()
 
-    if (!ready) return "Loading..."
 
     if (ready && !userData) {
         return <Link href={"/login"}/>
