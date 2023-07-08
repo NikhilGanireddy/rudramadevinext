@@ -19,7 +19,7 @@ export const GlobalUserContextProvider = ({children}) => {
 
             }).then((response) => {
                 console.log(response)
-                setUserData(response.data)
+                // setUserData(response.data)
                 setReady(true);
             })
         }
