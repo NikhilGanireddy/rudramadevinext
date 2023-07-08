@@ -1,8 +1,8 @@
 import connectDB from "@/lib/mongoDatabase";
 import {NextResponse} from "next/server";
 import UserModel from "models/UserModel"
-import {sign} from "jsonwebtoken"
-import {serialize} from "cookie";
+import sign from "jsonwebtoken"
+import serialize from "cookie";
 
 connectDB()
 

@@ -1,6 +1,4 @@
 import "./globals.css";
-import Sidebar from "@/components/Sidebar/Sidebar";
-import Header from "@/components/Header/Header";
 import { GlobalUserContextProvider } from "@/context/userContext";
 import axios from "axios";
 
@@ -10,8 +8,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // axios.defaults.baseURL = "https://rudramadevi.vercel.app";
-  axios.defaults.baseURL = "http://localhost:3000"
+  // axios.defaults.baseURL = "http://localhost:3000"
   axios.defaults.withCredentials = true;
 
   return (
