@@ -7,7 +7,7 @@ import {useGlobalUserContext} from "@/context/userContext";
 const LoginPage = () => {
     const {userData, setUserData, ready, setReady} = useGlobalUserContext()
     const [inputUser, setInputUser] = useState({
-        name: "", password: ""
+        hallTicket: "", password: ""
     })
     const [loading, setLoading] = useState(false)
     const router = useRouter()
@@ -15,15 +15,10 @@ const LoginPage = () => {
     const loginUser = async () => {
         try {
             setLoading(true)
-            console.log(inputUser)
-
-            const response = await axios.post("/api/login", {name: inputUser.name, password: inputUser.password})
-            // console.log(response.data?.user?.isAdmin)
-            alert(JSON.stringify(response.data))
+            const response = await axios.post("/api/login", {hallTicket: inputUser.hallTicket, password: inputUser.password})
             setUserData(response.data)
-            // console.log(response.data?.user)
-            // setLoading(false)
             setReady(true)
+            setLoading(false)
             if (response.data?.isAdmin) {
                 router.push("/admin/dashboard")
             } else {
@@ -35,7 +30,6 @@ const LoginPage = () => {
             setLoading(false)
         }
     }
-
     useEffect(() => {
         router.refresh()
     }, [ready]);
@@ -44,12 +38,12 @@ const LoginPage = () => {
         <h1>LoginPage</h1>
         <hr className="w-full"/>
         <form className=" mt-6 border rounded-xl p-12 w-1/2 flex flex-col gap-12">
-            <label className="pl-6 text-lg font-semibold">Name
+            <label className="pl-6 text-lg font-semibold">HallTicket No
                 <input
                     type="text"
-                    placeholder="Name"
-                    value={inputUser.name}
-                    onChange={(event) => setInputUser({...inputUser, name: event.target.value})}
+                    placeholder="HallTicket No"
+                    value={inputUser.hallTicket}
+                    onChange={(event) => setInputUser({...inputUser, hallTicket: event.target.value})}
                     className=" px-6 py-2 rounded-lg border bg-transparent w-full mt-3"
                 />
             </label>
