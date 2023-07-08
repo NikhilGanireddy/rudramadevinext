@@ -20,7 +20,7 @@ const LoginPage = () => {
             const response = await axios.post("/api/login", {name:inputUser.name, password:inputUser.password})
             // console.log(response.data?.user?.isAdmin)
             setUserData(response.data?.user)
-            // console.log(response.data?.user)
+            console.log(response.data?.user)
             setLoading(false)
             setReady(true)
             if (response.data?.user?.isAdmin) {
