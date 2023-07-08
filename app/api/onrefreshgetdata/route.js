@@ -18,7 +18,7 @@ export async function GET(request) {
             // return NextResponse.json(userdata);
 
             return NextResponse.json("hi");
-        } else return NextResponse.json("hello")
+        } else return NextResponse.json(request)
 
     } catch (e) {
         console.log(e)
