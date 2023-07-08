@@ -5,7 +5,7 @@ import connectDB from "@/lib/mongoDatabase";
 
 connectDB()
 
-export async function GET(request) {
+export async function GET(NexRequest) {
     try {
         if (NextRequest.cookies.get("token")) {
             // console.log(request.cookies.get("token"))
