@@ -5,9 +5,9 @@ import connectDB from "@/lib/mongoDatabase";
 
 connectDB()
 
-export async function GET(NexRequest) {
+export async function GET(request) {
     try {
-        if (NextRequest.cookies.get("token")) {
+        if (request.cookies.get("token")) {
             // console.log(request.cookies.get("token"))
             // const SECRET_KEY = "nikhilganireddy25345";
             // const tokendata = request.cookies.get("token")?.value
