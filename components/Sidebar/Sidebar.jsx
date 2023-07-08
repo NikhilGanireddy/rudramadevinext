@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <div className=" col-span-2 h-full p-2 bg-white/10 backdrop-blur-sm rounded-xl border-none">
+    <div className=" col-span-2 h-full p-2 bg-white/10 backdrop-blur-sm rounded-xl border-none min-w-[260px]">
       <h1 className="px-4 py-2">
         <Link href={"/"}>Rudramadevi</Link>
       </h1>
@@ -14,7 +14,7 @@ const Sidebar = () => {
               id={navlnk.id}
               href={navlnk.url}
               key={navlnk.id}
-              className="px-4 py-2 rounded-lg transition-all duration-200 cursor-pointer hover:bg-gray-300 hover:text-black"
+              className="px-4 text-lg font-semibold py-2 rounded-lg transition-all duration-200 cursor-pointer hover:bg-gray-300 hover:text-black"
             >
               {navlnk.title}
             </Link>
