@@ -9,21 +9,18 @@ export const GlobalUserContextProvider = ({children}) => {
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
-        if (!userData) {
-            axios.get("/api/onrefreshgetdata", {
-                withCredentials: true,
-                headers: {
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json"
-                },
-
-            }).then((response) => {
-                console.log(response)
-                // setUserData(response.data)
-                setReady(true);
-            })
-        }
-    }, [userData]);
+        (async () => {
+            try {
+                const data = await axios.get("/api/onrefreshgetdata")
+                console.log(data.data.user)
+                setUserData(data.data.user)
+                setReady(true)
+                return data
+            } catch (e) {
+                console.log(e)
+            }
+        })()
+    }, []);
 
     // console.log(userData)
 

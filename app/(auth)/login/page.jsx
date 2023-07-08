@@ -5,7 +5,7 @@ import {useRouter} from "next/navigation";
 import {useGlobalUserContext} from "@/context/userContext";
 
 const LoginPage = () => {
-    const {userData, setUserData, ready, setReady}= useGlobalUserContext()
+    const {userData, setUserData, ready, setReady} = useGlobalUserContext()
     const [inputUser, setInputUser] = useState({
         name: "", password: ""
     })
@@ -17,17 +17,17 @@ const LoginPage = () => {
             setLoading(true)
             console.log(inputUser)
 
-            const response = await axios.post("/api/login", {name:inputUser.name, password:inputUser.password})
+            const response = await axios.post("/api/login", {name: inputUser.name, password: inputUser.password})
             // console.log(response.data?.user?.isAdmin)
-            setUserData(response.data?.user)
-            console.log(response.data?.user)
-            setLoading(false)
+            alert(JSON.stringify(response.data))
+            setUserData(response.data)
+            // console.log(response.data?.user)
+            // setLoading(false)
             setReady(true)
-            if (response.data?.user?.isAdmin) {
+            if (response.data?.isAdmin) {
                 router.push("/admin/dashboard")
             } else {
                 router.push("/user/dashboard")
-                // router.refresh()
             }
         } catch (err) {
             alert(err.response.data.error)
