@@ -31,6 +31,3 @@ export default function Home() {
     </div>
   );
 }
-
-// <Link className="bg-black text-gray-300 px-6 py-2 rounded-lg border"
-//       href={`/${(userData?.isAdmin) ? "admin" : "user"}/dashboard`}>Go to Dashboard</Link>

@@ -1,8 +1,8 @@
 import connectDB from "@/lib/mongoDatabase";
 import {NextResponse} from "next/server";
 import UserModel from "models/UserModel"
-import sign from "jsonwebtoken"
-import serialize from "cookie";
+import jwt from "jsonwebtoken"
+import cookie from "cookie";
 
 connectDB()
 
@@ -16,13 +16,13 @@ export async function POST(request) {
             return NextResponse.json({error: "User not found"}, {status: 400})
         } else {
             if (user.password === reqBody.password) {
-                const token = sign(
+                const token = jwt.sign(
                     {user},
                     SECRET_KEY,
                     {expiresIn: 60 * 24 * 30}
                 )
 
-                const serialised = serialize("token", token, {
+                const serialised = cookie.serialize("token", token, {
                     httpOnly: true, sameSite: "strict", maxAge: 60 * 24 * 30, path: "/"
                 })
 

@@ -5,20 +5,20 @@ import {useGlobalUserContext} from "@/context/userContext";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 
-const AdminLayout = ({children}) => {
+const UserLayout = ({children}) => {
     const {userData, setUserData, ready, setReady} = useGlobalUserContext()
     const router = useRouter()
     if (!ready) return "Loading..."
 
     if (ready && !userData) {
-        return router.push("/")
+        return <Link href={"/login"}/>
     }
 
     if (ready && userData) {
-        if (userData?.isAdmin) {
+        if (!userData?.isAdmin) {
             return <div
                 className="bg-black text-gray-300 h-full max-w-[2560px] w-full gap-6 flex ">
-                <Sidebar/>
+                {/*<Sidebar/>*/}
                 <div className="col-span-10 gap-6 flex flex-col w-full">
                     <Header/>
                     {children}
@@ -29,4 +29,4 @@ const AdminLayout = ({children}) => {
         }
     }
 }
-export default AdminLayout
+export default UserLayout
