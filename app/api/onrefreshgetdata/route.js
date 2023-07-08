@@ -2,10 +2,12 @@ import jwt from "jsonwebtoken";
 import {NextRequest, NextResponse} from "next/server";
 import UserModel from "models/UserModel"
 import connectDB from "@/lib/mongoDatabase";
+import {cookies} from "next/headers";
 
 connectDB()
 
 export async function GET(request) {
+
     try {
         if (request.cookies.get("token")) {
             // console.log(request.cookies.get("token"))
@@ -18,7 +20,9 @@ export async function GET(request) {
             // return NextResponse.json(userdata);
 
             return NextResponse.json("hi");
-        } else return NextResponse.json(request)
+        } else return NextResponse.json(
+            (cookies().get("token"))
+        )
 
     } catch (e) {
         console.log(e)
