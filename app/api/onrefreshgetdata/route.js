@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import {NextResponse} from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 import UserModel from "models/UserModel"
 import connectDB from "@/lib/mongoDatabase";
 
@@ -7,7 +7,7 @@ connectDB()
 
 export async function GET(request) {
     try {
-        if (request.cookies.get("token")) {
+        if (NextRequest.cookies.get("token")) {
             // console.log(request.cookies.get("token"))
             // const SECRET_KEY = "nikhilganireddy25345";
             // const tokendata = request.cookies.get("token")?.value
