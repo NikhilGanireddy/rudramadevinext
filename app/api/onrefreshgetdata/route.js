@@ -15,7 +15,6 @@ export async function GET(request) {
     else {
         const tokendata = token.value
         const decodedToken = jwt.verify(tokendata, SECRET_KEY)
-        return NextResponse.json(decodedToken,
-        )
+        return NextResponse.json(decodedToken)
     }
 }

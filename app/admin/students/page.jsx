@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Students = async () => {
     console.log("===============================================================")
-    const users = await axios.get(`https://rudramadevi.vercel.app/api/admin/students`)
+    const users = await axios.get(`${process.env.DEFAULT_URI}/api/admin/students`,{proxy:undefined})
     console.log(users)
     console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
