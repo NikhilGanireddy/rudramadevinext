@@ -15,7 +15,7 @@ const LoginPage = () => {
     const loginUser = async () => {
         try {
             setLoading(true)
-            const response = await axios.post("/api/login", {hallTicket: inputUser.hallTicket, password: inputUser.password})
+            const response = await axios.post("https://rudramadevi.vercel.app/api/login", {hallTicket: inputUser.hallTicket, password: inputUser.password})
             setUserData(response.data)
             setReady(true)
             setLoading(false)

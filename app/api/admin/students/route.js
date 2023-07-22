@@ -5,6 +5,10 @@ import UserModel from "models/UserModel"
 connectDB()
 
 export async function GET() {
+    process.on('uncaughtException', function (err) {
+        console.log(err);
+    });
+
     try {
         const users = await UserModel.find({isAdmin: false})
         console.log(users.data)

@@ -27,7 +27,7 @@ const NewStudent = () => {
     const createUser = async () => {
         try {
             setCreating(true)
-            const response = await axios.post("/api/admin/students/createstudent", {
+            const response = await axios.post("https://rudramadevi.vercel.app/api/admin/students/createstudent", {
                 name,
                 hallTicket,
                 room,

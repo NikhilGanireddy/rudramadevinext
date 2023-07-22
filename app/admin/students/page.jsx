@@ -5,11 +5,15 @@ import Link from "next/link";
 
 const Students = async () => {
     console.log("===============================================================")
-    const users = await axios.get(`${process.env.DEFAULT_URI}/api/admin/students`,{proxy:undefined})
-    console.log(users)
+    const response = await axios.get("https://rudramadevi.vercel.app/api/admin/students", {proxy: undefined})
+    process.on('uncaughtException', function (err) {
+        console.log(err);
+    });
+
+    console.log(response)
     console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
-    const usersData = users?.data
+    const usersData = response?.data
 
     return <div className="rounded-2xl backdrop-blur-sm w-full h-full overflow-y-auto flex flex-col gap-6 xl:gap-6">
         <div className="w-full flex justify-between items-center">

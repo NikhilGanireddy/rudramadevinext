@@ -8,7 +8,7 @@ const AdminLogout = () => {
   const router = useRouter();
 
   const logout = async () => {
-    const response = await axios.get("/api/logout");
+    const response = await axios.get("https://rudramadevi.vercel.app/api/logout");
     setReady(false);
     console.log(response.data);
     router.push("/")
