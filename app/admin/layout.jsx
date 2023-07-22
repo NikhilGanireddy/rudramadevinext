@@ -16,7 +16,7 @@ const AdminLayout = ({children}) => {
     if (ready && userData) {
         if (userData?.isAdmin) {
             return <div
-                className="bg-black text-gray-300 h-full max-w-[2560px] w-full gap-0 lg:gap-6 flex ">
+                className="bg-black text-gray-300 h-full max-w-[2560px] w-full gap-0 md:gap-6 flex ">
                 <Sidebar/>
                 <div className="col-span-10 gap-6 flex flex-col w-full">
                     <Header/>
