@@ -52,7 +52,11 @@ const UserSchema = new mongoose.Schema({
     complaints: {
         type: Array,
     },
-    password: String,
+    password: {
+        type: String, default: function () {
+            return this.hallTicket
+        }
+    },
     isAdmin: {type: Boolean, default: false},
 })
 

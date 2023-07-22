@@ -1,14 +1,13 @@
 "use client";
 import {createContext, useContext, useEffect, useState} from "react";
 import axios from "axios";
-import {useRouter} from "next/navigation";
 
 const GlobalUserContext = createContext({});
 
 export const GlobalUserContextProvider = ({children}) => {
     const [userData, setUserData] = useState(null);
     const [ready, setReady] = useState(false);
-    const router = useRouter()
+    const [showSideBar, setShowSideBar] = useState(false)
 
     useEffect(() => {
         (async () => {
@@ -29,7 +28,7 @@ export const GlobalUserContextProvider = ({children}) => {
 
     return (
         <GlobalUserContext.Provider
-            value={{userData, setUserData, ready, setReady}}
+            value={{userData, setUserData, ready, setReady, showSideBar, setShowSideBar}}
         >
             {children}
         </GlobalUserContext.Provider>

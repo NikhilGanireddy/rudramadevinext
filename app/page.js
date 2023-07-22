@@ -1,13 +1,15 @@
 "use client";
 import Link from "next/link";
 import {useGlobalUserContext} from "@/context/userContext";
+import axios from "axios";
 
 export default function Home() {
-    const {userData, setUserData, ready, setReady} = useGlobalUserContext();
+    const {userData,  ready} = useGlobalUserContext();
 
+    axios.defaults.baseURL = process.env.DEFAULT_URI
 
     return (
-        <div className="p-4 rounded-xl border h-full flex flex-col justify-center items-center gap-6">
+        <div className=" rounded-xl border h-full flex flex-col justify-center items-center gap-6">
             <h1>Rudramadevi Girls Hostel</h1>
             <div>
                 {(ready && userData) ? (
