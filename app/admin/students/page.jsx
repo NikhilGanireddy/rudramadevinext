@@ -3,9 +3,9 @@ import axios from "axios";
 import {FiEdit} from "react-icons/fi";
 import Link from "next/link";
 
-async function Students() {
+const Students = async () => {
 
-    const users = await axios.get(`${process.env.DEFAULT_URI}/api/admin/students`)
+    const users = await axios.get("/api/admin/students")
     console.log("==================================================================================")
     const usersData = users?.data
 
@@ -15,7 +15,8 @@ async function Students() {
             <h1>Students</h1>
         </div>
         <div>
-            <Link href={"/admin/students/newstudent"} className="px-6 py-3 rounded-xl bg-gray-300 text-black font-semibold">Create Student</Link>
+            <Link href={"/admin/students/newstudent"}
+                  className="px-6 py-3 rounded-xl bg-gray-300 text-black font-semibold">Create Student</Link>
         </div>
         <div
             className="grid grid-rows-none grid-cols-1 md:grid-cols-2 lg:grid-rows-3 xl:grid-cols-4 gap-4 overflow-y-auto">
