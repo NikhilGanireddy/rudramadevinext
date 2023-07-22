@@ -37,14 +37,14 @@ const LoginPage = () => {
     return <div className="flex flex-col gap-6 justify-center items-center">
         <h1>LoginPage</h1>
         <hr className="w-full"/>
-        <form className=" mt-6 border rounded-xl p-12 w-1/2 flex flex-col gap-12">
+        <form className=" mt-6 border border-neutral-700 rounded-xl p-12 w-full lg:w-1/2 flex flex-col gap-12">
             <label className="pl-6 text-lg font-semibold">HallTicket No
                 <input
                     type="text"
                     placeholder="HallTicket No"
                     value={inputUser.hallTicket}
                     onChange={(event) => setInputUser({...inputUser, hallTicket: event.target.value})}
-                    className=" px-6 py-2 rounded-lg border bg-transparent w-full mt-3"
+                    className="outline-none px-6 py-2 rounded-lg border bg-transparent w-full mt-3 border-neutral-700"
                 />
             </label>
 
@@ -54,14 +54,14 @@ const LoginPage = () => {
                     placeholder="Password"
                     value={inputUser.password}
                     onChange={(event) => setInputUser({...inputUser, password: event.target.value})}
-                    className=" px-6 py-2 rounded-lg border bg-transparent w-full mt-3"
+                    className="outline-none px-6 py-2 rounded-lg border bg-transparent w-full mt-3 border-neutral-700"
                 />
             </label>
 
             <button
                 onClick={loginUser}
                 disabled={loading}
-                className="px-6 py-2 rounded-lg border-none bg-neutral-300 cursor-pointer text-black font-bold disabled:cursor-not-allowed disabled:bg-black/30 disabled:text-white"
+                className=" px-6 py-2 rounded-lg border-none bg-neutral-300 cursor-pointer text-black font-bold disabled:cursor-not-allowed disabled:bg-black/30 disabled:text-white"
                 type="submit">
                 {loading ? "Logging in" : "Login"}
             </button>

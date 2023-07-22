@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import  {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 import connectDB from "@/lib/mongoDatabase";
-import {cookies} from "next/headers";
+import { cookies } from "next/headers";
 
 connectDB()
 

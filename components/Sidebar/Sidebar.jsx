@@ -8,7 +8,7 @@ const Sidebar = () => {
     const string = pathName.split("/")
 
     const sideBarName = string[2]
-    console.log(sideBarName)
+    // console.log(sideBarName)
 
     return (
         <div className=" hidden md:block  col-span-2 h-full p-2 px-4 bg-white/10 backdrop-blur-sm rounded-xl border-none min-w-[260px]">

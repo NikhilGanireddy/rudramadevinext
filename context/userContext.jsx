@@ -14,13 +14,13 @@ export const GlobalUserContextProvider = ({children}) => {
         (async () => {
             try {
                 const data = await axios.get("/api/onrefreshgetdata")
-
                 if (data.data !== null) {
                     setUserData(data.data.user)
                     setReady(true)
-                } else {
-                    router.push("/login")
                 }
+                // else {
+                //     router.push("/login")
+                // }
             } catch (e) {
                 console.log(e)
             }

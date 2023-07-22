@@ -1,4 +1,3 @@
-
 import {NextResponse} from "next/server";
 
 export function middleware(request) {
@@ -10,8 +9,9 @@ export function middleware(request) {
     if (loginRouter && token) {
         return NextResponse.redirect(new URL("/", request.nextUrl));
     }
+
 }
 
 export const config = {
-    matcher: [ "/login", "/signup"],
+    matcher: ["/login", "/signup"],
 };

@@ -5,3 +5,15 @@
 h1{
     @apply text-2xl font-bold
 }
+body::-webkit-scrollbar{
+    @apply w-2
+}
+
+body::-webkit-scrollbar-track {
+
+    @apply bg-transparent  rounded-3xl my-48
+}
+
+body::-webkit-scrollbar-thumb{
+    @apply bg-gradient-to-b from-white to-[#4F0DAA] rounded-3xl
+}

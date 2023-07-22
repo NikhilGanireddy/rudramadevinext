@@ -11,7 +11,8 @@ const AdminLogout = () => {
     const response = await axios.get("/api/logout");
     setReady(false);
     console.log(response.data);
-    window.location.reload();
+    router.push("/")
+    // window.location.reload();
   };
 
   return (
