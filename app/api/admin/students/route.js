@@ -2,7 +2,7 @@ import connectDB from "@/lib/mongoDatabase";
 import {NextResponse} from "next/server";
 import UserModel from "models/UserModel"
 
-connectDB()
+connectDB().then(r => console.log("connected+"))
 
 export async function GET() {
     try {
