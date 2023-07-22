@@ -3,13 +3,13 @@ import axios from "axios";
 import {FiEdit} from "react-icons/fi";
 import Link from "next/link";
 
+const getUsers = async () => {
+    return await fetch("https://rudramadevi.vercel.app/api/admin/students", {cache: "no-store"})
+}
 const Students = async () => {
     console.log("===============================================================")
-    const response = await axios.get("https://rudramadevi.vercel.app/api/admin/students", {proxy: undefined})
-    process.on('uncaughtException', function (err) {
-        console.log(err);
-    });
-
+    // const response = await axios.get("https://rudramadevi.vercel.app/api/admin/students",)
+    const response = getUsers()
     console.log(response)
     console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
