@@ -3,6 +3,7 @@ import {useGlobalUserContext} from "@/context/userContext";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
 import axios from "axios";
+import Popup from "@components/Poppup/Popup";
 
 const NewStudent = () => {
     const router = useRouter()
@@ -27,7 +28,7 @@ const NewStudent = () => {
     const createUser = async () => {
         try {
             setCreating(true)
-            const response = await axios.post("https://rudramadevi.vercel.app/api/admin/students/createstudent", {
+            const response = await axios.post("/api/admin/students/createstudent", {
                 name,
                 hallTicket,
                 room,

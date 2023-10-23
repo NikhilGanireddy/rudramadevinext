@@ -1,6 +1,7 @@
 import connectDB from "@/lib/mongoDatabase";
 import {NextResponse} from "next/server";
 import UserModel from "models/UserModel"
+import next from "next";
 
 connectDB().then(r => console.log("students database connected"))
 
