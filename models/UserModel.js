@@ -60,6 +60,6 @@ const UserSchema = new mongoose.Schema({
     isAdmin: {type: Boolean, default: false},
 })
 
-const UserModel = mongoose.models.rudramadevinextjsusers || mongoose.model("rudramadevinextjsusers", UserSchema)
+const UserModel = mongoose.models?.rudramadevinextjsusers || mongoose.model("rudramadevinextjsusers", UserSchema)
 
 module.exports = UserModel

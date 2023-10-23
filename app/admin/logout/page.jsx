@@ -38,4 +38,5 @@ const AdminLogout = () => {
   );
 };
 
+
 export default AdminLogout;

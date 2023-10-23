@@ -1,19 +1,20 @@
-// "use client"
-import axios from "axios";
 import {FiEdit} from "react-icons/fi";
 import Link from "next/link";
+import {getUsersFromRoute} from "@app/api/admin/students/route";
+import {useGlobalUserContext} from "@context/userContext";
 
 const getUsers = async () => {
-    return await fetch("https://rudramadevi.vercel.app/api/admin/students", {cache: "no-store"})
+    const userssss = await getUsersFromRoute()
+    // console.log(userssss)
+    return userssss
 }
 const Students = async () => {
+    // const {allUsers, setAllUsers} = useGlobalUserContext()
     console.log("===============================================================")
-    // const response = await axios.get("https://rudramadevi.vercel.app/api/admin/students",)
-    const response = getUsers()
-    console.log(response)
+    // console.log(getUsers())
+    const allUsers= await getUsers()
+    console.log(allUsers)
     console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-
-    const usersData = response?.data
 
     return <div className="rounded-2xl backdrop-blur-sm w-full h-full overflow-y-auto flex flex-col gap-6 xl:gap-6">
         <div className="w-full flex justify-between items-center">
@@ -25,7 +26,7 @@ const Students = async () => {
         </div>
         <div
             className="grid grid-rows-none grid-cols-1 md:grid-cols-2 lg:grid-rows-3 xl:grid-cols-4 gap-4 overflow-y-auto">
-            {usersData?.map(user => {
+            {allUsers?.map(user => {
                 return <div
                     className="p-3 w-full h-max rounded-xl bg-white/10 backdrop-blur-sm flex justify-between items-center"
                     key={user._id}>

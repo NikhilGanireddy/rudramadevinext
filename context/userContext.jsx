@@ -6,6 +6,7 @@ const GlobalUserContext = createContext({});
 
 export const GlobalUserContextProvider = ({children}) => {
     const [userData, setUserData] = useState(null);
+    const [allUsers, setAllUsers] = useState("");
     const [ready, setReady] = useState(false);
     const [showSideBar, setShowSideBar] = useState(false)
 
@@ -28,7 +29,7 @@ export const GlobalUserContextProvider = ({children}) => {
 
     return (
         <GlobalUserContext.Provider
-            value={{userData, setUserData, ready, setReady, showSideBar, setShowSideBar}}
+            value={{userData, setUserData, ready, setReady, showSideBar, setShowSideBar, allUsers, setAllUsers}}
         >
             {children}
         </GlobalUserContext.Provider>
